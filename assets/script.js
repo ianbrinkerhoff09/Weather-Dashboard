@@ -2,8 +2,8 @@ var searchText = document.getElementById("search-text");
 var searchButton = document.getElementById("search-button");
 var mainCity = document.getElementById("main-city");
 var mainDate = document.getElementById("main-date");
-var mainTemp = document.getElementById("main-temp");
-var mainHumi = document.getElementById("main-humi");
+var mainTemp = document.getElementById("main-temperature");
+var mainHumidity = document.getElementById("main-humidity");
 var mainWind = document.getElementById("main-wind");
 var searchID = localStorage.length + 1;
 
@@ -14,14 +14,14 @@ var date = [
 	document.getElementById("date4"),
 	document.getElementById("date5"),
 ];
-var temp = [
+var temperature = [
 	document.getElementById("temp1"),
 	document.getElementById("temp2"),
 	document.getElementById("temp3"),
 	document.getElementById("temp4"),
 	document.getElementById("temp5"),
 ];
-var humi = [
+var humidity = [
 	document.getElementById("humi1"),
 	document.getElementById("humi2"),
 	document.getElementById("humi3"),
@@ -39,7 +39,7 @@ var wind = [
 
 
 
-
+// uses ajax to call the api (openweather), pulls the data for a 5 day forecast; user inpute gets sent into the '{city}' in the api url through the function action
 function forecastWeather(city) {
 	$.ajax({
 		url: `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&appid=d08fabd5a16007cee40332c9ce4a6108`,
@@ -49,13 +49,14 @@ function forecastWeather(city) {
 			date[i].textContent = moment
 				.unix(response.list[i * 8].dt)
 				.format("L");
-			temp[i].textContent = response.list[i * 8].main.temp;
-			humi[i].textContent = response.list[i * 8].main.humidity;
+				temperature[i].textContent = response.list[i * 8].main.temp;
+			humidity[i].textContent = response.list[i * 8].main.humidity;
 			wind[i].textContent = response.list[i * 8].wind.speed;
 		}
 	});
 }
 
+// stores the previously searched cities in local storage right after it has been searched. It appends thecity name to 'past-searches'
 function getCities() {
 	var stored = Object.keys(localStorage);
 	for (let i = 0; i < stored.length; i++) {
@@ -70,6 +71,7 @@ function getCities() {
 	}
 }
 
+// saves previously searched results in local storage and will stay there until page sata has been cleared
 function saveCity(cityToSave) {
 	localStorage.setItem(`city${searchID}`, cityToSave);
 	searchID++;
@@ -82,6 +84,8 @@ function saveCity(cityToSave) {
 	element.appendChild(para);
 }
 
+
+// pulls the main weather information from the weather api
 function mainWeather(city) {
 	$.ajax({
 		url: `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=d08fabd5a16007cee40332c9ce4a6108`,
@@ -90,29 +94,19 @@ function mainWeather(city) {
 		console.log(response);
 		mainCity.textContent = response.name;
 		mainDate.textContent = moment().format("L")
-		mainTemp.textContent = response.main.temp;
-		mainHumi.textContent = response.main.humidity;
+		temperature.textContent = response.main.temp;
+		mainhumidity.textContent = response.main.humidity;
 		mainWind.textContent = response.wind.speed;
-		// mainUVin.textContent =
 	});
 }
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+//runs function
 getCities();
 
+
+// event listener for button that searchs
 searchButton.addEventListener("click", function (event) {
 	event.preventDefault();
 	let currentCity = searchText.value;
