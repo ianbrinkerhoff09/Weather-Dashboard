@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Weather Dashboard</title>
+		<link
+			rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+			integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+			crossorigin="anonymous"
+		/>
+		<link rel="stylesheet" href="./assets/styles.css" />
+	</head>
+	<body class="background">
+		<header class="text-center">
+			<h1>Weather Dashboard</h1>
+		</header>
+		<div class="row">
+			<div class="col form-group">
+				<h2>Search for a City</h2>
+				<input type="text" placeholder="City" id="search-text" class="form-control" />
+				<button type="button" class="btn btn-primary" id="search-button">Search</button>
+				<hr />
+				<div id="past-searches"></div>
+			</div>
+			<div class="col-10 bg-dark text-light weather-body">
+				<div>
+					<h2 id="main-city">
+						City
+					</h2>
+					<h4 id="main-date">Date</h4>
+					<p>Temperature: <span id="main-temp"></span>°F</p>
+					<p>Humidity: <span id="main-humi"></span>%</p>
+					<p>Wind Speed: <span id="main-wind"></span> MPH</p>
+				</div>
+				<h2>Five Day Forecast:</h2>
+				<div class="row text-dark">
+					<div class="col">
+						<div class="card" id="fc1">
+							<div class="card-body">
+								<h3 class="card-title" id="date1">
+									Date
+								</h3>
+								<ul class="list-group list-group-flush">
+									<li class="list-group-item">
+										Temperature: <span id="temp1"></span>°F
+									</li>
+									<li class="list-group-item">
+										Humidity: <span id="humi1"></span>%
+									</li>
+									<li class="list-group-item">
+										Wind Speed: <span id="wind1"></span> MPH
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="col">
+						<div class="card" id="fc2">
+							<div class="card-body">
+								<h3 class="card-title" id="date2">
+									Date
+								</h3>
+								<ul class="list-group list-group-flush">
+									<li class="list-group-item">
+										Temperature: <span id="temp2"></span>°F
+									</li>
+									<li class="list-group-item">
+										Humidity: <span id="humi2"></span>%
+									</li>
+									<li class="list-group-item">
+										Wind Speed: <span id="wind2"></span> MPH
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="col">
+						<div class="card" id="fc3">
+							<div class="card-body">
+								<h3 class="card-title" id="date3">
+									Date
+								</h3>
+								<ul class="list-group list-group-flush">
+									<li class="list-group-item">
+										Temperature: <span id="temp3"></span>°F
+									</li>
+									<li class="list-group-item">
+										Humidity: <span id="humi3"></span>%
+									</li>
+									<li class="list-group-item">
+										Wind Speed: <span id="wind3"></span> MPH
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="col">
+						<div class="card" id="fc4">
+							<div class="card-body">
+								<h3 class="card-title" id="date4">
+									Date
+								</h3>
+								<ul class="list-group list-group-flush">
+									<li class="list-group-item">
+										Temperature: <span id="temp4"></span>°F
+									</li>
+									<li class="list-group-item">
+										Humidity: <span id="humi4"></span>%
+									</li>
+									<li class="list-group-item">
+										Wind Speed: <span id="wind4"></span> MPH
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="col">
+						<div class="card" id="fc5">
+							<div class="card-body">
+								<h3 class="card-title" id="date5">
+									Date
+								</h3>
+								<ul class="list-group list-group-flush">
+									<li class="list-group-item">
+										Temperature: <span id="temp5"></span>°F
+									</li>
+									<li class="list-group-item">
+										Humidity: <span id="humi5"></span>%
+									</li>
+									<li class="list-group-item">
+										Wind Speed: <span id="wind5"></span> MPH
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+	<script src="./assets/script.js"></script>
+</html>
