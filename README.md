@@ -15,7 +15,7 @@ Displays 5 day forecast for location of choice
 
 ## Webpage
 
-Press [HERE](https://www.google.com) to go to page
+Press [HERE](https://ianbrinkerhoff09.github.io/Weather-Dashboard/) to go to page
 
 ## Usage
 
